@@ -1,0 +1,107 @@
+name: vxscan
+description: "vxScan — offline-first barcode scanner and generator for Android."
+publish_to: 'none'
+
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.13.7
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Scanning / encoding engine: zxing-cpp via FFI (native, NDK + CMake required)
+  flutter_zxing: ^3.1.1
+
+  # Local SQLite storage
+  drift: ^2.35.4
+  drift_flutter: ^0.3.1
+
+  # State management
+  flutter_riverpod: ^3.5.0
+
+  # Navigation
+  go_router: ^18.1.4
+
+  # Gallery scan via the system picker (no storage permission needed)
+  image_picker: ^1.2.4
+
+  # Temp/cache dirs (engine round-trip test, later exports)
+  path_provider: ^2.1.5
+
+  # Scan feedback
+  vibration: ^3.2.1
+  audioplayers: ^6.8.1
+
+  # Smart actions
+  url_launcher: ^6.3.3
+  android_intent_plus: ^6.1.0
+
+  # Share-into-app and sharing out
+  receive_sharing_intent: ^1.9.0
+  share_plus: ^13.3.1
+
+  # Settings storage
+  shared_preferences: ^2.5.6
+
+  # Export (Phase 5) — pure Dart
+  excel: ^4.0.6
+  # 3.12.0 pinned: 3.13+ needs xml ^7 which conflicts with excel's xml <7.
+  pdf: 3.12.0
+
+  # Backup restore: pick a backup file without storage permissions
+  file_picker: ^13.4.0
+
+  # Device integration tests (flutter test integration_test). A regular
+  # dependency, not dev: its Android plugin must be on the release classpath
+  # or GeneratedPluginRegistrant fails to compile.
+  integration_test:
+    sdk: flutter
+
+  # Formatting
+  intl: ^0.20.3
+
+  # Generator extras (Phase 4) — pure Dart, no native build risk
+  barcode: ^2.2.9
+  barcode_widget: ^2.0.4
+
+  # Export (Phase 5) — pure Dart
+  csv: ^8.0.0
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+  flutter_launcher_icons: ^0.14.4
+  # Icon generation script (already a pdf transitive dep)
+  image: ^4.3.0
+
+  # Codegen for drift
+  build_runner: ^2.17.1
+  drift_dev: ^2.35.3
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - assets/sounds/beep.wav
+
+# Icon and splash generation (run: dart run flutter_launcher_icons /
+# dart run flutter_native_splash:create)
+flutter_launcher_icons:
+  image_path: "assets/icon/app_icon.png"
+  android: "ic_launcher"
+  adaptive_icon_background: "#00696F"
+  adaptive_icon_foreground: "assets/icon/app_icon_foreground.png"
+
+flutter_native_splash:
+  color: "#00696F"
+  android_12:
+    color: "#00696F"

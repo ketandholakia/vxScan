@@ -1,0 +1,15 @@
+{
+  "@@locale": "en",
+  "appTitle": "vxScan",
+  "@appTitle": { "description": "App name shown in the task switcher." },
+  "historyEmpty": "Nothing scanned yet.\nPoint the camera at a barcode!",
+  "@historyEmpty": { "description": "Empty state of the history list." },
+  "copied": "Copied to clipboard",
+  "@copied": { "description": "Confirmation after copying a value." },
+  "scanDeleted": "Scan deleted",
+  "@scanDeleted": { "description": "Snackbar after deleting a scan." },
+  "undo": "Undo",
+  "@undo": { "description": "Undo button on the delete snackbar." },
+  "privacyNote": "Offline-first. Camera is the only permission; scans never leave this device.",
+  "@privacyNote": { "description": "About entry in settings." }
+}
